@@ -1,0 +1,29 @@
+<div>
+  <a href="#" (click) = "onSignUpLinkClick()">Sign Up</a> | <a href="#" (click) = "onRegisterUserClick()">Registered Users</a>
+</div>
+
+<div *ngIf = "view == 'signup'">
+  <div>User Name* : <input type="text" required [(ngModel)] = "signupUser.username"><span *ngIf = "validate.userNameRequired" style="color: red">{{validate.userNameerror}}</span></div>
+  <div>Email* : <input type="text" required [(ngModel)] = "signupUser.email"><span *ngIf = "validate.emailRequired" style="color: red">*required</span></div>
+  <div>Message* : <input type="text" required [(ngModel)] = "signupUser.message"><span *ngIf = "validate.messageRequired" style="color: red">*required</span></div>
+  <button (click) = onSignUpBtnClcik()>Signup</button>
+</div>
+
+<div *ngIf = "view == 'register'">
+  <table border="1">
+    <thead>
+      <tr>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Message</th>
+      </tr>      
+    </thead>
+    <tbody>
+      <tr *ngFor = "let user of userList">
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.message}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
